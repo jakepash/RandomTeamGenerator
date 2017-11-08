@@ -60,7 +60,7 @@ class App(tk.Tk):
         global firstNames
         global teams
         global nameList
-        df = pd.read_excel("/Users/jacobpashman/Documents/RandomTeamGenerator/names.xlsx")
+        df = pd.read_excel("/Users/jacobpashman/Documents/RandomTeamGenerator/classNames.xlsx")
         nameList =  df.as_matrix()
         firstNames = []
         for i in range(len(nameList)):
@@ -80,6 +80,12 @@ class App(tk.Tk):
         print 'teamtype', teamType.get()
         if teamType.get() == 1:
             randomDifferentSkills()
+        if teamType.get() == 2:
+            randomSameSkills()
+        if teamType.get() == 3:
+            randomDifferentAge()
+        if teamType.get() == 4:
+            randomSameAge()
         if teamType.get() == 5:
             randomNoCriteria()
 
@@ -142,6 +148,111 @@ def randomDifferentSkills():
                         team = [skills[randomPerson]]
                     else:
                         team.append(skills[randomPerson])
+                    firstNames.pop(randomPerson)
+                print 'random person:', randomPerson
+            print 'team:', team
+            teams.append(team)
+
+
+def randomSameSkills():
+    global repeat
+    global nPeople
+    global entry
+    global nTeams
+    global teamType
+    global firstNames
+    global teams
+
+    skills = []
+    for i in range(len(nameList)):
+         if i > 0 and i < len(nameList):
+            print nameList[i][3]
+            skills.append([(nameList[i][0]), (nameList[i][3])])
+    print 'skills:', skills
+
+    for i in range(nTeams):
+            team = [[u'hfjgvukdfdjdf', 3456789098765]]
+            for j in range(nPeople):
+                if len(firstNames) > 0:
+                    randomPerson = randint(0, len(firstNames) - 1)
+                    print 'random person', randomPerson
+                    # print 'skills random', skills[randomPerson][1]
+                    # print 'team #1', team[0][1]
+                    while skills[randomPerson][1] != team[0][1] and len(firstNames) > (nPeople - 1) and team != [[u'hfjgvukdfdjdf', 3456789098765]]:
+                        randomPerson = randint(0, len(firstNames) - 1)
+                    if team == [[u'hfjgvukdfdjdf', 3456789098765]]:
+                        team = [skills[randomPerson]]
+                    else:
+                        team.append(skills[randomPerson])
+                    firstNames.pop(randomPerson)
+                print 'random person:', randomPerson
+            print 'team:', team
+            teams.append(team)
+
+
+
+def randomDifferentAge():
+    global repeat
+    global nPeople
+    global entry
+    global nTeams
+    global teamType
+    global firstNames
+    global teams
+
+    age = []
+    for i in range(len(nameList)):
+         if i > 0 and i < len(nameList):
+            print nameList[i][2]
+            age.append([(nameList[i][0]), (nameList[i][2])])
+    print 'age:', age
+
+    for i in range(nTeams):
+            team = [[u'hfjgvukdfdjdf', 3456789098765]]
+            for j in range(nPeople):
+                if len(firstNames) > 0:
+                    randomPerson = randint(0, len(firstNames) - 1)
+                    print 'random person', randomPerson
+                    while age[randomPerson][1] == team[0][1] and len(firstNames) > (nPeople - 1):
+                        randomPerson = randint(0, len(firstNames) - 1)
+                    if team == [[u'hfjgvukdfdjdf', 3456789098765]]:
+                        team = [age[randomPerson]]
+                    else:
+                        team.append(age[randomPerson])
+                    firstNames.pop(randomPerson)
+                print 'random person:', randomPerson
+            print 'team:', team
+            teams.append(team)
+
+
+def randomSameAge():
+    global repeat
+    global nPeople
+    global entry
+    global nTeams
+    global teamType
+    global firstNames
+    global teams
+
+    age = []
+    for i in range(len(nameList)):
+         if i > 0 and i < len(nameList):
+            print nameList[i][2]
+            age.append([(nameList[i][0]), (nameList[i][2])])
+    print 'age:', age
+
+    for i in range(nTeams):
+            team = [[u'hfjgvukdfdjdf', 3456789098765]]
+            for j in range(nPeople):
+                if len(firstNames) > 0:
+                    randomPerson = randint(0, len(firstNames) - 1)
+                    print 'random person', randomPerson
+                    while age[randomPerson][1] != team[0][1] and len(firstNames) > (nPeople - 1) and team != [[u'hfjgvukdfdjdf', 3456789098765]]:
+                        randomPerson = randint(0, len(firstNames) - 1)
+                    if team == [[u'hfjgvukdfdjdf', 3456789098765]]:
+                        team = [age[randomPerson]]
+                    else:
+                        team.append(age[randomPerson])
                     firstNames.pop(randomPerson)
                 print 'random person:', randomPerson
             print 'team:', team
