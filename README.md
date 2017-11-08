@@ -1,1 +1,1 @@
-# RandomTeamGeneratorr
+# RandomTeamGenerator
